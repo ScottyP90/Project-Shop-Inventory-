@@ -1,3 +1,6 @@
+require_relative('../db/sql_runner.rb')
+require_relative('./publisher.rb')
+
 class Game
 
   attr_accessor :publisher_id, :name, :description, :stock_quantity, :buy_cost, :selling_price
@@ -35,9 +38,31 @@ class Game
   def is_stock_empty
     if @stock_quantity == 0
       return true
-    else 
+    else
       return false
     end
+  end
+
+  def save
+    sql = "INSERT INTO games
+    (publisher_id, name, description, stock_quantity, buy_cost, selling_price)
+    VALUES ($1, $2, $3, $4, $5, $6) RETURNING id"
+    values = [@publisher_id, @name, @description, @stock_quantity, @buy_cost, @selling_price]
+    result = SqlRunner.run(sql, values)
+    @id = result[0]["id"].to_i
+  end
+
+  def self.delete_all
+    sql = "DELETE FROM games"
+    SqlRunner.run(sql)
+  end
+
+  def update
+    sql = "UPDATE games SET (
+    publisher_id, name, description, stock_quantity, buy_cost, selling_price
+    ) = ($1, $2, $3, $4, $5, $6) WHERE id = $7"
+    values = [@publisher_id, @name, @description, @stock_quantity, @buy_cost, @selling_price, @id]
+    SqlRunner.run(sql, values)
   end
 
 
