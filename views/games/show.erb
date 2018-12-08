@@ -6,3 +6,7 @@
 <p>Stock: <%=@game.stock_quantity %></p>
 <p>Buy Cost: £<%=@game.buy_cost %></p>
 <p>Selling Price: £<%=@game.selling_price %></p>
+<a href="/games/<%= @game.id %>/edit">Edit Stock</a>
+<form action="/games/<%= @game.id %>/delete" method="post">
+  <input type="submit" value="Remove Stock">
+</form>

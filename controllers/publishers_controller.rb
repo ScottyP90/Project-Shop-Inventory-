@@ -18,3 +18,20 @@ post '/publishers' do
   publisher.save
   redirect to('/publishers')
 end
+
+get '/publishers/:id/edit' do
+  @publisher = Publisher.find(params[:id])
+  erb(:"publishers/edit")
+end
+
+post '/publishers/:id' do
+  @pub = Publisher.new(params)
+  @pub.update
+  redirect to('/publishers')
+end
+
+post '/publishers/:id/delete' do
+  publisher = Publisher.find(params[:id])
+  publisher.delete
+  redirect to('/publishers')
+end

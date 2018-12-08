@@ -27,7 +27,6 @@ end
 
 get '/games/:id/edit' do
   @game = Game.find(params[:id])
-  @games = Game.all
   @publishers = Publisher.all
   erb(:"games/edit")
 end
@@ -36,4 +35,10 @@ post '/games/:id' do
   @game = Game.new(params)
   @game.update
   redirect to("/games/#{params[:id]}")
+end
+
+post '/games/:id/delete' do
+  games = Game.find(params[:id])
+  games.delete()
+  redirect to('/games')
 end

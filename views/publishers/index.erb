@@ -1,7 +1,12 @@
 <h1>List of publisher</h1>
 <br>
 <ul>
-<% for pub in @publishers %>
-  <li><%= pub.publisher %> </li>
+<% for publisher in @publishers %>
+  <p><%= publisher.publisher %> <a href="/publishers/<%= publisher.id %>/edit">Edit Publisher</a></p>
+  <form action="/publishers/<%= publisher.id %>/delete" method="post">
+    <input type="submit" value="Delete Publisher">
+  </form>
+
+  <br>
 <% end %>
 </ul>

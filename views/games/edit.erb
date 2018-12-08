@@ -1,0 +1,27 @@
+<h1>Update Stock</h1>
+
+<form class="" action="/games/<%= @game.id %> " method="post">
+  <label for="name">Tilte:</label>
+  <input type="text" name="name" value="<%= @game.name %>">
+
+  <label for="publisher_id">Publisher:</label>
+  <select name="publisher_id">
+    <% for publisher in @publishers %>
+      <option <%= 'selected' if publisher.id == @game.publisher_id %> value="<%=publisher.id%>"><%=publisher.publisher %></option>
+    <% end %>
+  </select>
+
+  <label for="description">Description:</label>
+  <input type="text" name="description" value="<%= @game.description %>">
+
+  <label for="stock_quantity">Stock:</label>
+  <input type="number" name="stock_quantity" value="<%= @game.stock_quantity %>">
+
+  <label for="buy_cost">Buy Cost:</label>
+  <input type="number" name="buy_cost" value="<%= @game.buy_cost %>">
+
+  <label for="selling_price">Selling Price:</label>
+  <input type="number" name="selling_price" value="<%= @game.selling_price %>">
+
+  <input type="submit" value="Update Stock">
+</form>
