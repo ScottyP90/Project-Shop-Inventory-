@@ -1,0 +1,10 @@
+<h1>Game Inventory</h1>
+<br>
+<% for game in @games %>
+  <p>Title: <%=game.name %></p>
+  <p>Publisher: <%=game.game_publisher.publisher %></p>
+  <p>Stock: <%=game.stock_quantity %></p>
+  <p><a class="button" href="/games/<%=game.id %>">Show Details</a></p>
+  <br>
+<% end %>
+<p>End of Inventory</p>
