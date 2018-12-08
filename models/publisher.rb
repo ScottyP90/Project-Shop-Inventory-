@@ -12,7 +12,7 @@ class Publisher
   end
 
   def save
-    sql = "INSERT INTO publishers publisher VALUES $1 RETURNING id"
+    sql = "INSERT INTO publishers (publisher) VALUES ($1) RETURNING id"
     values = [@publisher]
     result = SqlRunner.run(sql,values)
     @id = result[0]['id'].to_i
@@ -24,10 +24,29 @@ class Publisher
   end
 
   def update
-    sql "UPDATE publishers SET publisher = $1 WHERE id = $2"
+    sql = "UPDATE publishers SET publisher = $1 WHERE id = $2"
     values = [@publisher, @id]
     SqlRunner.run(sql, values)
   end
 
+  def delete
+    sql = "DELETE FROM publishers WHERE id = $1"
+    values = [@id]
+    SqlRunner.run(sql,values)
+  end
+
+  def self.all
+    sql = "SELECT * FROM publishers"
+    publishers = SqlRunner.run(sql)
+    return publishers.map{|publisher|Publisher.new(publisher)}
+  end
+
+  def games
+    sql = "SELECT * FROM games WHERE publisher_id = $1"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    games = results.map{|game_hash|Game.new(game_hash)}
+    return games
+  end
 
 end

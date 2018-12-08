@@ -16,13 +16,31 @@ publisher2 = Publisher.new({
   'publisher' => 'Activision'
   })
 
-puplisher2.save
+publisher2.save
 
 publisher3 = Publisher.new({
   'publisher' => 'Nintendo'
   })
 
 publisher3.save
+
+publisher4 = Publisher.new({
+  'publisher' => 'Insomniac'
+  })
+
+publisher4.save
+
+publisher5 = Publisher.new({
+  'publisher' => 'Square Enix'
+  })
+
+publisher5.save
+
+publisher6 = Publisher.new({
+  'publisher' => 'EA'
+  })
+
+publisher6.save
 
 game1 = Game.new({
   'publisher_id' => "#{publisher1.id}",
@@ -36,7 +54,7 @@ game1 = Game.new({
 game1.save
 
 game2 = Game.new({
-  'publisher_id' => "#{publisheer1.id}",
+  'publisher_id' => "#{publisher1.id}",
   'name' => 'Grand Theft Auto 5',
   'description' => 'Crazy fun in the city of Los Santos',
   'stock_quantity'=> '50',
@@ -62,12 +80,20 @@ game4 = Game.new({
   'name' => 'Smash Bros Ultamite',
   'description' => 'Nintendo characters fighting',
   'stock_quantity' => '0',
-  'buy_cost:' => '50',
+  'buy_cost' => '50',
   'selling_price' => '60'
   })
 
 game4.save
 
+# game4.stock_quantity = 50
+# game4.update
+#
+# game_list = Game.all
+# publisher = Publisher.all
+#
+# game2.delete
+# publisher6.delete
 
 
 

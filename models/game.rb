@@ -65,5 +65,24 @@ class Game
     SqlRunner.run(sql, values)
   end
 
+  def delete
+    sql = "DELETE FROM games WHERE id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
 
+  def self.all
+    sql = "SELECT * FROM games"
+    games = SqlRunner.run(sql)
+    return games.map{|game|Game.new(game)}
+  end
+
+  def game_publisher
+    sql = "SELECT * FROM publishers WHERE id = $1"
+    values = [@publisher_id]
+    result = SqlRunner.run(sql, values)
+    publ_hash = result[0]
+    publisher = Publisher.new(publ_hash)
+    return publisher
+  end
 end

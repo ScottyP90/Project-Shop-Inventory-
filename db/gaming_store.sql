@@ -8,7 +8,7 @@ CREATE TABLE publishers(
 
 CREATE TABLE games(
   id SERIAL PRIMARY KEY,
-  publisher_id INT REFERENCES publisher(id),
+  publisher_id INT REFERENCES publishers(id),
   name VARCHAR(255),
   description TEXT,
   stock_quantity INT,
