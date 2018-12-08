@@ -8,7 +8,32 @@ get '/games' do
   erb(:"games/index")
 end
 
+get '/games/new' do
+  @games = Game.all
+  @publishers = Publisher.all
+  erb(:"games/new")
+end
+
 get '/games/:id' do
   @game = Game.find(params[:id].to_i())
   erb(:"games/show")
+end
+
+post '/games' do
+  game = Game.new(params)
+  game.save
+  redirect to('/games')
+end
+
+get '/games/:id/edit' do
+  @game = Game.find(params[:id])
+  @games = Game.all
+  @publishers = Publisher.all
+  erb(:"games/edit")
+end
+
+post '/games/:id' do
+  @game = Game.new(params)
+  @game.update
+  redirect to("/games/#{params[:id]}")
 end
