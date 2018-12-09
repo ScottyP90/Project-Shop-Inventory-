@@ -11,6 +11,7 @@ end
 get '/games/new' do
   @games = Game.all
   @publishers = Publisher.all
+  @genres = ['Action', 'Adventure', 'Fighting', 'Platform', 'Puzzle', 'Racing', 'Role-playing', 'Shooter', 'Simulation', 'Sport', 'Strategy', 'Misc']
   erb(:"games/new")
 end
 
@@ -28,6 +29,7 @@ end
 get '/games/:id/edit' do
   @game = Game.find(params[:id])
   @publishers = Publisher.all
+  @genres = ['Action', 'Adventure', 'Fighting', 'Platform', 'Puzzle', 'Racing', 'Role-playing', 'Shooter', 'Simulation', 'Sport', 'Strategy', 'Misc']
   erb(:"games/edit")
 end
 

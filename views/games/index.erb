@@ -3,6 +3,7 @@
 <% for game in @games %>
   <p>Title: <%=game.name %></p>
   <p>Publisher: <%=game.game_publisher.publisher %></p>
+  <p>Genre: <%=game.genre %></p>
   <p>Stock: <%=game.stock_quantity %></p>
   <p>Markup: <%=game.markup%>%</p>
   <p><a class="button" href="/games/<%=game.id %>">Show Details</a></p>

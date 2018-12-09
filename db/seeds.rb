@@ -45,6 +45,7 @@ publisher6.save
 game1 = Game.new({
   'publisher_id' => "#{publisher1.id}",
   'name' => 'Red Dead Redemption 2',
+  'genre' => 'Action',
   'description' => 'Old West Shooter',
   'stock_quantity' => '100',
   'buy_cost' => '40',
@@ -56,6 +57,7 @@ game1.save
 game2 = Game.new({
   'publisher_id' => "#{publisher1.id}",
   'name' => 'Grand Theft Auto 5',
+  'genre' => 'Action',
   'description' => 'Crazy fun in the city of Los Santos',
   'stock_quantity'=> '50',
   'buy_cost' => '35',
@@ -66,7 +68,8 @@ game2.save
 
 game3 = Game.new({
   'publisher_id' => "#{publisher2.id}",
-  'name' => "Spyro Trilogy",
+  'name' => 'Spyro Trilogy',
+  'genre' => 'Platform',
   'description' => 'A story about a purple dragon',
   'stock_quantity' => '9',
   'buy_cost' => '30',
@@ -78,6 +81,7 @@ game3.save
 game4 = Game.new({
   'publisher_id' => "#{publisher3.id}",
   'name' => 'Smash Bros Ultamite',
+  'genre' => 'Fighting',
   'description' => 'Nintendo characters fighting',
   'stock_quantity' => '0',
   'buy_cost' => '50',

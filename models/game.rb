@@ -3,7 +3,7 @@ require_relative('./publisher.rb')
 
 class Game
 
-  attr_accessor :publisher_id, :name, :description, :stock_quantity, :buy_cost, :selling_price
+  attr_accessor :publisher_id, :name, :genre, :description, :stock_quantity, :buy_cost, :selling_price
 
   attr_reader :id
 
@@ -11,6 +11,7 @@ class Game
     @id = options['id'].to_i if options['id']
     @publisher_id = options['publisher_id'].to_i
     @name = options['name']
+    @genre = options['genre']
     @description = options['description']
     @stock_quantity = options['stock_quantity'].to_i
     @buy_cost = options['buy_cost'].to_i
@@ -47,12 +48,12 @@ class Game
     total = ((@selling_price - @buy_cost).to_f / @buy_cost * 100).round
     return total
   end
-  
+
   def save
     sql = "INSERT INTO games
-    (publisher_id, name, description, stock_quantity, buy_cost, selling_price)
-    VALUES ($1, $2, $3, $4, $5, $6) RETURNING id"
-    values = [@publisher_id, @name, @description, @stock_quantity, @buy_cost, @selling_price]
+    (publisher_id, name, genre, description, stock_quantity, buy_cost, selling_price)
+    VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id"
+    values = [@publisher_id, @name, @genre, @description, @stock_quantity, @buy_cost, @selling_price]
     result = SqlRunner.run(sql, values)
     @id = result[0]["id"].to_i
   end
@@ -64,9 +65,9 @@ class Game
 
   def update
     sql = "UPDATE games SET (
-    publisher_id, name, description, stock_quantity, buy_cost, selling_price
-    ) = ($1, $2, $3, $4, $5, $6) WHERE id = $7"
-    values = [@publisher_id, @name, @description, @stock_quantity, @buy_cost, @selling_price, @id]
+    publisher_id, name, genre, description, stock_quantity, buy_cost, selling_price
+    ) = ($1, $2, $3, $4, $5, $6, $7) WHERE id = $8"
+    values = [@publisher_id, @name, @genre, @description, @stock_quantity, @buy_cost, @selling_price, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -96,5 +97,14 @@ class Game
     publ_hash = result[0]
     publisher = Publisher.new(publ_hash)
     return publisher
+  end
+
+  def self.genre_find(genre)
+    sql = "SELECT * FROM games WHERE genre = $1"
+    values = [genre]
+    result = SqlRunner.run(sql, values)
+    genere_hash = result[0]
+    genres = Game.new(genere_hash)
+    return genres
   end
 end
