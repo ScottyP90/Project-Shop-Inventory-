@@ -29,7 +29,7 @@ class GameTest < MiniTest::Test
       'name' => 'Smash Bros Ultamite',
       'description' => 'Nintendo characters fighting',
       'stock_quantity' => '0',
-      'buy_cost:' => '50',
+      'buy_cost' => '50',
       'selling_price' => '60'
     }
 
@@ -72,5 +72,11 @@ class GameTest < MiniTest::Test
     assert_equal(55, @game1.selling_price)
   end
 
+  def test_markup1
+    assert_equal(38, @game1.markup)
+  end
 
+  def test_markup2
+    assert_equal(20, @game3.markup)
+  end
 end

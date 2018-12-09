@@ -43,6 +43,11 @@ class Game
     end
   end
 
+  def markup
+    total = ((@selling_price - @buy_cost).to_f / @buy_cost * 100).round
+    return total
+  end
+  
   def save
     sql = "INSERT INTO games
     (publisher_id, name, description, stock_quantity, buy_cost, selling_price)

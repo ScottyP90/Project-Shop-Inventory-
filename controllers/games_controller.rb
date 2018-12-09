@@ -31,6 +31,11 @@ get '/games/:id/edit' do
   erb(:"games/edit")
 end
 
+get 'games/:publisher_id' do
+  @games = Game.game_publisher(params[:publisher_id])
+  erb(:"games/filter_publisher")
+end
+
 post '/games/:id' do
   @game = Game.new(params)
   @game.update
