@@ -1,10 +1,9 @@
-<h1>Game Inventory</h1>
+<h1>Search for Genre:</h1>
 <br>
-
-<% for game in @games %>
+<% for game in @all_games %>
   <p>Title: <%=game.name %></p>
-  <p>Publisher: <a href="/publisher/<%="#{game.game_publisher.id}"%>"><%=game.game_publisher.publisher %></a></p>
-  <p>Genre: <a href="/games/genre/<%="#{game.genre}"%>"><%=game.genre %></a></p>
+  <p>Publisher: <%=game.game_publisher.publisher %></p>
+  <p>Genre: <%=game.genre %></p>
   <p>Stock Level:
   <% if game.is_stock_low == true && game.is_stock_empty == false %>
     Stock is low
@@ -17,4 +16,3 @@
   <p><a class="button" href="/games/<%=game.id %>">Show Details</a></p>
   <br>
 <% end %>
-<p>End of Inventory</p>

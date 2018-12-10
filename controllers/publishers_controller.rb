@@ -25,9 +25,6 @@ get '/publishers/:id/edit' do
 end
 
 get '/publisher/:id' do
-  # find the publisher
-  # get all the games by the publisher
-  # show in an erb file
   @publisher = Publisher.find(params[:id])
   @all_games = @publisher.games
   erb(:"publishers/show")

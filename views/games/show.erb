@@ -1,7 +1,7 @@
 <h2>Game Stock details</h2>
 <br>
 <p>Title: <%=@game.name %></p>
-<p>Publisher: <%=@game.game_publisher.publisher %></p>
+<p>Publisher: <a href="/publisher/<%="#{@game.game_publisher.id}"%>"><%=@game.game_publisher.publisher %></a></p>
 <p>Description: <%=@game.description %></p>
 <p>Genre: <%=@game.genre %></p>
 <p>Stock: <%=@game.stock_quantity %></p>

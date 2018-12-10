@@ -103,8 +103,6 @@ class Game
     sql = "SELECT * FROM games WHERE genre = $1"
     values = [genre]
     result = SqlRunner.run(sql, values)
-    genere_hash = result[0]
-    genres = Game.new(genere_hash)
-    return genres
+    return result.map{|game|Game.new(game)}
   end
 end

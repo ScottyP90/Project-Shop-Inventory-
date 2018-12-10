@@ -5,7 +5,7 @@ also_reload('../models/*')
 
 get '/games' do
   @games = Game.all
-  @publishers = Publisher.all
+  @genres = ['Action', 'Adventure', 'Fighting', 'Platform', 'Puzzle', 'Racing', 'Role-playing', 'Shooter', 'Simulation', 'Sport', 'Strategy', 'Misc']
   erb(:"games/index")
 end
 
@@ -32,6 +32,11 @@ get '/games/:id/edit' do
   @publishers = Publisher.all
   @genres = ['Action', 'Adventure', 'Fighting', 'Platform', 'Puzzle', 'Racing', 'Role-playing', 'Shooter', 'Simulation', 'Sport', 'Strategy', 'Misc']
   erb(:"games/edit")
+end
+
+get '/games/genre/:genre' do
+  @all_games = Game.genre_find(params[:genre])
+  erb(:"games/show_genre")
 end
 
 post '/games/:id' do
