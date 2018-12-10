@@ -24,6 +24,15 @@ get '/publishers/:id/edit' do
   erb(:"publishers/edit")
 end
 
+get '/publisher/:id' do
+  # find the publisher
+  # get all the games by the publisher
+  # show in an erb file
+  @publisher = Publisher.find(params[:id])
+  @all_games = @publisher.games
+  erb(:"publishers/show")
+end
+
 post '/publishers/:id' do
   @pub = Publisher.new(params)
   @pub.update

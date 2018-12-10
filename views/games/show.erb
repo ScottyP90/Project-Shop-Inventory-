@@ -5,6 +5,14 @@
 <p>Description: <%=@game.description %></p>
 <p>Genre: <%=@game.genre %></p>
 <p>Stock: <%=@game.stock_quantity %></p>
+<p>Stock Level:
+<% if @game.is_stock_low == true && @game.is_stock_empty == false %>
+  Stock is low
+<% elsif @game.is_stock_low == true && @game.is_stock_empty == true %>
+  Out of stock
+<% else %>
+  In Stock
+<% end %></p>
 <p>Buy Cost: £<%=@game.buy_cost %></p>
 <p>Selling Price: £<%=@game.selling_price %></p>
 <p>Markup: <%=@game.markup %>%</p>

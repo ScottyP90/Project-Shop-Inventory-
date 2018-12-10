@@ -45,7 +45,7 @@ class Publisher
     sql = "SELECT * FROM publishers WHERE id = $1"
     values = [id]
     result = SqlRunner.run(sql, values)
-    return Game.new(result.first)
+    return Publisher.new(result.first)
   end
 
   def games
