@@ -1,8 +1,8 @@
-<h1>Search for Genre:</h1>
+<h2>Search for Genre:</h2>
 <br>
 <% for game in @all_games %>
   <p>Title: <%=game.name %></p>
-  <p>Publisher: <%=game.game_publisher.publisher %></p>
+  <p>Publisher: <a href="/publisher/<%="#{game.game_publisher.id}"%>"><%=game.game_publisher.publisher %></a></p>
   <p>Genre: <%=game.genre %></p>
   <p>Stock Level:
   <% if game.is_stock_low == true && game.is_stock_empty == false %>

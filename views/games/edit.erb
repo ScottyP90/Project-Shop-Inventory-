@@ -1,5 +1,6 @@
-<h1>Update Stock</h1>
-
+<h2>Update Stock</h2>
+<br>
+<section class="border">
 <form class="" action="/games/<%= @game.id %> " method="post">
   <label for="name">Tilte:</label>
   <input type="text" name="name" value="<%= @game.name %>">
@@ -29,6 +30,8 @@
 
   <label for="selling_price">Selling Price:</label>
   <input type="number" name="selling_price" value="<%= @game.selling_price %>">
-
-  <input type="submit" value="Update Stock">
+  <br>
+  <input class="button" type="submit" value="Update Stock">
+  <br>
 </form>
+</section>

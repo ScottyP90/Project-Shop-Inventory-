@@ -1,12 +1,11 @@
-<h1>List of publisher</h1>
+<h2>List of publisher</h2>
 <br>
-<ul>
-<% for publisher in @publishers %>
-  <p><%= publisher.publisher %> <a href="/publishers/<%= publisher.id %>/edit">Edit Publisher</a></p>
-  <form action="/publishers/<%= publisher.id %>/delete" method="post">
-    <input type="submit" value="Delete Publisher">
-  </form>
 
-  <br>
+<% for publisher in @publishers %>
+<section class="border">
+  <p><%= publisher.publisher %> <a class="button" href="/publishers/<%= publisher.id %>/edit">Edit Publisher</a></p>
+  <form action="/publishers/<%= publisher.id %>/delete" method="post">
+    <input class="button" type="submit" value="Delete Publisher">
+  </form>
+</section>
 <% end %>
-</ul>

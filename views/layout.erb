@@ -5,19 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="/styles/main_body.css">
+  <link rel="stylesheet" href="/styles/buttons.css">
   <title>Gearloose Gaming Emporium</title>
-  <h1>Gearloose Gaming Emporium</h1>
+  <h1><a class="hyper" href="/">Gearloose Gaming Emporium</a></h1>
   <h3>If you need a game, we will find it</h3>
 </head>
 <body>
   <nav>
-    <ul>
-      <ls><a href="/games">Games Inventory</a></ls>
-      <ls><a href="/publishers">Publishers List</a></ls>
-      <ls><a href="/games/new">Add Game</a></ls>
-      <ls><a href="/publishers/new">Add Publisher</a></ls>
+    <ul class="navbar">
+      <li><a class="hyper" href="/games">Games Inventory</a></li>
+      <li><a class="hyper" href="/publishers">Publishers List</a></li>
+      <li><a class="hyper" href="/games/new">Add Game</a></li>
+      <li><a class="hyper" href="/publishers/new">Add Publisher</a></li>
     </ul>
-    <hr>
   </nav>
   <%= yield %>
 </body>
