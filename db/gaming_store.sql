@@ -8,7 +8,7 @@ CREATE TABLE publishers(
 
 CREATE TABLE games(
   id SERIAL PRIMARY KEY,
-  publisher_id INT REFERENCES publishers(id),
+  publisher_id INT REFERENCES publishers(id) ON DELETE CASCADE,
   name VARCHAR(255),
   genre VARCHAR(255),
   description TEXT,

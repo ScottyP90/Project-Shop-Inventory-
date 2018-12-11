@@ -1,18 +1,20 @@
 <h2>Search for Genre:</h2>
 <br>
 <% for game in @all_games %>
+<section class="border">
   <p>Title: <%=game.name %></p>
   <p>Publisher: <a href="/publisher/<%="#{game.game_publisher.id}"%>"><%=game.game_publisher.publisher %></a></p>
   <p>Genre: <%=game.genre %></p>
-  <p>Stock Level:
-  <% if game.is_stock_low == true && game.is_stock_empty == false %>
-    Stock is low
-  <% elsif game.is_stock_low == true && game.is_stock_empty == true %>
-    Out of stock
-  <% else %>
-    In Stock
-  <% end %></p>
+  <p>
+    <% if game.is_stock_low == true && game.is_stock_empty == false %>
+      <section class="low_stock">Stock is low</section>
+    <% elsif game.is_stock_low == true && game.is_stock_empty == true %>
+      <section class="no_stock">Out of stock</section>
+    <% else %>
+      <section class="high_stock">In Stock</section>
+    <% end %></p>
   <p>Markup: <%=game.markup%>%</p>
   <p><a class="button" href="/games/<%=game.id %>">Show Details</a></p>
   <br>
+</section>
 <% end %>

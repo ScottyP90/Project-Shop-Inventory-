@@ -29,7 +29,8 @@ li:first-child{
 }
 
 li:first-child>a{
-  border-top-left-radius: .50em; border-bottom-left-radius: .50em;
+  border-top-left-radius: .50em;
+  border-bottom-left-radius: .50em;
 }
 
 li:last-child{
@@ -37,19 +38,22 @@ li:last-child{
 }
 
 li:last-child>a{
-  border-top-right-radius: .50em; border-bottom-right-radius: .50em;
+  border-top-right-radius: .50em;
+  border-bottom-right-radius: .50em;
 }
 
 li:last-child:hover{
   background-color: darkorange;
   border: 0px ;
-  border-top-right-radius: .75em; border-bottom-right-radius: .75em;
+  border-top-right-radius: .75em;
+  border-bottom-right-radius: .75em;
 }
 
 li:first-child:hover{
   background-color: darkorange;
   border: 0px ;
-  border-top-left-radius: .75em; border-bottom-left-radius: .75em;
+  border-top-left-radius: .75em;
+  border-bottom-left-radius: .75em;
 }
 li:hover{
   background-color: darkorange;
