@@ -104,9 +104,35 @@ li:hover{
   text-decoration: none;
   text-align: center;
   width: auto;
+  cursor: pointer;
 }
 
 .button:hover{
   background-color: darkorange;
   color: silver;
+}
+
+select {
+  width: 180px;
+  padding: 5px;
+  margin: 10px 0;
+  font-size: 16;
+  -webkit-appearance: none;
+  background-color: orange;
+  border-radius: 0.50em;
+  border: 2px solid black;
+  font-family: sans-serif;
+  font-size: 13px;
+}
+
+input {
+  width: 170px;
+  padding: 5px;
+  margin: 5px 0;
+  font-size: 16;
+  background-color: orange;
+  border: 2px solid black;
+  border-radius: 0.50em;
+  font-family: sans-serif;
+  font-size: 13px;
 }

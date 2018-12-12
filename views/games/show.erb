@@ -4,8 +4,8 @@
 <section class="border">
 <p>Title: <%=@game.name %></p>
 <p>Publisher: <a href="/publisher/<%="#{@game.game_publisher.id}"%>"><%=@game.game_publisher.publisher %></a></p>
-<p>Description: <%=@game.description %></p>
 <p>Genre: <a href="/games/genre/<%="#{@game.genre}"%>"><%=@game.genre %></a></p>
+<p>Description: <%=@game.description %></p>
 <p>Stock: <%=@game.stock_quantity %></p>
 <p>Stock Level:
 <% if @game.is_stock_low == true && @game.is_stock_empty == false %>
@@ -21,5 +21,6 @@
 <a class="button" href="/games/<%= @game.id %>/edit">Edit Stock</a>
 <form action="/games/<%= @game.id %>/delete" method="post">
   <input class="button" type="submit" value="Remove Stock">
+  <br>
 </form>
 </section>
